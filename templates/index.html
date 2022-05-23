@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block title %}Pokedex{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+{% block navbar %}
+    <div class="sidenav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a class="active" href="#">Pokemons</a></li>
+            <li><a href="#">Favoritos</a></li>
+            <li><a href="#">MeuTime</a></li>
+            <li><a href="#">Sobre</a></li>
+        </ul>
+    </div>
+{% endblock %}
+{% block search %}
+<div class="search">
+    <form action="" method="post">
+        <select name="types" id="types">
+            <option value=""></option>
+            <option value="normal">normal</option>
+            <option value="fighting">fighting</option>
+            <option value="flying">flying</option>
+            <option value="poison">poison</option>
+            <option value="ground">ground</option>
+            <option value="rock">rock</option>
+            <option value="bug">bug</option>
+            <option value="ghost">ghost</option>
+            <option value="steel">steel</option>
+            <option value="fire">fire</option>
+            <option value="water">water</option>
+            <option value="grass">grass</option>
+            <option value="electric">electric</option>
+            <option value="psychic">psychic</option>
+            <option value="ice">ice</option>
+            <option value="dragon">dragon</option>
+            <option value="dark">dark</option>
+            <option value="fairy">fairy</option>
+            <option value="unknown">unknown</option>
+            <option value="shadow">shadow</option>
+        </select>
+        <input type="submit" value="Pesquisar">
+    </form>
+</div>
+{% endblock %}
+{% block content %}
+    <div class="slide-container">
+        {% for pokemon in pokemons %}
+        <a href="{{url_for('detalhes', id=pokemon['id'])}}">
+             
+        <div class="wrapper">
+            <div class="clash-card barbarian">
+                <div class="clash-card__image clash-card__image--barbarian">
+                <img src="{{ pokemon['sprites']['other']['official-artwork']['front_default'] }}" alt="barbarian" />
+                </div>
+                <div class="clash-card__unit-name">{{ pokemon['name'] | capitalize }}</div>           
+                <div class="clash-card__unit-stats pokemon clearfix">
+                    {% for type in pokemon['types'] %}
+                    <div class="one-third {{ type['type']['name'] }}">
+                        <div class="stat-value">{{ type['type']['name'] | capitalize }}</div>
+                    </div>
+                    {% endfor %}       
+                </div>            
+            </div> <!-- end clash-card barbarian-->
+        </div>
+        </a>  <!-- end wrapper --> 
+        {% endfor %}          
+    </div><!-- end container -->     
+    
+{% endblock %}

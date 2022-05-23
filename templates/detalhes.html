@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block title %}Pokedex{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='detalhes.css') }}">
+{% endblock %}
+{% block content %}
+    <div class="slide-container">
+        <div class="botoes voltar">
+            <a href="javascript:history.back()">Voltar</a>
+        </div>   
+        <div class="wrapper">
+            <div class="clash-card barbarian">
+                <div class="clash-card__image clash-card__image--barbarian">
+                <img src="{{ pokemon['sprites']['other']['official-artwork']['front_default'] }}" alt="barbarian" />
+                </div>
+                <div class="clash-card__unit-name">{{ pokemon['name'] | capitalize }}</div>           
+                <div class="clash-card__unit-stats pokemon clearfix">
+                    {% for type in pokemon['types'] %}
+                    <div class="one-third {{ type['type']['name'] }}">
+                        <div class="stat-value">{{ type['type']['name'] | capitalize }}</div>
+                    </div>
+                    {% endfor %}       
+                </div>            
+            </div>
+            <div style="display: inline-block; padding: 16px; position: relative; text-align: center;">
+                {% for stats in pokemon['stats']  %}
+                <label style="color: #000">{{ stats['stat']['name'] }} : {{ stats['base_stat'] }}</label>
+                <div><input type="range" min="0" max="100" value="{{ stats['base_stat'] }}" disabled></div>
+                {% endfor %} 
+            </div> <!-- end clash-card barbarian-->
+        </div> <!-- end wrapper --> 
+               
+        <div class="botoes">
+            <a href="javascript:history.back()">Favoritar</a>
+        </div>        
+        <div class="botoes">
+            <a href="javascript:history.back()">Time</a>
+        </div>        
+    </div><!-- end container -->
+           
+{% endblock %}
