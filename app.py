@@ -313,7 +313,7 @@ def importar():
     }
 
     json_object = json.dumps(dados, indent=4)
-    with open("arquivoJson.json", "w") as outfile: 
+    with open("static/arquivoJson.json", "w") as outfile: 
         outfile.write(json_object)
 
     imagem = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png'

@@ -2,18 +2,18 @@
     "id": "1",
     "nome": "Jander",
     "time": [
-        "id_pokemon : 4",
         "id_pokemon : 1",
         "id_pokemon : 8",
-        "id_pokemon : 5"
+        "id_pokemon : 5",
+        "id_pokemon : 25"
     ],
     "favoritos": [
         "id_pokemon : 4",
-        "id_pokemon : 3",
         "id_pokemon : 2",
         "id_pokemon : 6",
         "id_pokemon : 9",
         "id_pokemon : 12",
-        "id_pokemon : 1"
+        "id_pokemon : 1",
+        "id_pokemon : 56"
     ]
 }
