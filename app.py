@@ -266,26 +266,29 @@ def sobre():
 
 @app.route('/MinhaAPI')
 def MinhaAPI():
-    user = User.query.get(current_user.id)
-    time = Time.query.filter(Time.id_usuario == current_user.id).all()
-    favoritos = Favoritos.query.filter(Favoritos.id_usuario == current_user.id).all()
-
-    vetorTime = []
-    for inf in time:
-        vetorTime.append(f'id_pokemon : {inf.id_pokemon}')
+    users = User.query.all()
+    print(len(users))
     
-    vetorFavoritos = []
-    for inf in favoritos:
-        vetorFavoritos.append(f'id_pokemon : {inf.id_pokemon}')
-
-    dados = {
-        'id' : f'{user.id}',
-        'nome' : f'{user.username}',
-        'time' : vetorTime,
-        'favoritos' : vetorFavoritos,
-    }
-
-    return jsonify(dados)
+    listaCompleta = []
+    for user in users:
+        time = Time.query.filter(Time.id_usuario == user.id).all()
+        vetorTime = []
+        for inf in time:
+            vetorTime.append(f'id_pokemon : {inf.id_pokemon}')
+        favoritos = Favoritos.query.filter(Favoritos.id_usuario == user.id).all()
+        vetorFavoritos = []
+        for inf in favoritos:
+            vetorFavoritos.append(f'id_pokemon : {inf.id_pokemon}')
+        dados = {}
+        dados = {
+            'id' : f'{user.id}',
+            'nome' : f'{user.username}',
+            'time' : vetorTime,
+            'favoritos' : vetorFavoritos,
+        }
+        listaCompleta.append(dados)
+    
+    return jsonify(listaCompleta)
 
 @app.route('/importar')
 @login_required
