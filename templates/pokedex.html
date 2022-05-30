@@ -13,9 +13,11 @@
         <section class="form">
             <div class="cab">
                 <header>{{ nome }}</header>
-                <div class="menu">
+                <div class="menu">                    
                     <a href="{{url_for('MeusFavoritos')}}"><i class="fa-solid fa-heart"></i></a>
                     <a href="{{url_for('MeuTime')}}"><i class="fa-solid fa-people-group"></i></a>
+                    <a href="{{url_for('sobre')}}"><i class="fa-solid fa-address-card"></i></a>
+                    <a href="{{url_for('importar')}}"><i class="fa-solid fa-file-arrow-down"></i></a>
                     <a href="{{url_for('logout')}}"><i class="fa-solid fa-circle-xmark"></i></a>
                 </div>                  
             </div>

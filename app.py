@@ -1,6 +1,7 @@
+import json
 import random
 import requests
-from flask import Flask, render_template, session, url_for, redirect, request
+from flask import Flask, render_template, session, url_for, redirect, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
@@ -88,7 +89,7 @@ def login():
                 login_user(user)
                 return redirect(url_for('pokedex', pg=1))
 
-    return render_template('login.html', form=form, msg=msg)
+    return render_template('login.html', form=form)
 
 @app.route('/logout', methods=['GET', 'POST'])
 @login_required
@@ -255,6 +256,66 @@ def tirartime(id):
     msg ='Pokemon foi retirado do seu time'
 
     return render_template('msg.html', msg=msg, pokemon=pokemon)
+
+@app.route('/sobre')
+def sobre():
+    imagem_jander = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png'
+    imagem_marcelo = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png'
+    
+    return render_template('sobre.html', imagem_jander=imagem_jander, imagem_marcelo=imagem_marcelo)
+
+@app.route('/MinhaAPI')
+def MinhaAPI():
+    user = User.query.get(current_user.id)
+    time = Time.query.filter(Time.id_usuario == current_user.id).all()
+    favoritos = Favoritos.query.filter(Favoritos.id_usuario == current_user.id).all()
+
+    vetorTime = []
+    for inf in time:
+        vetorTime.append(f'id_pokemon : {inf.id_pokemon}')
+    
+    vetorFavoritos = []
+    for inf in favoritos:
+        vetorFavoritos.append(f'id_pokemon : {inf.id_pokemon}')
+
+    dados = {
+        'id' : f'{user.id}',
+        'nome' : f'{user.username}',
+        'time' : vetorTime,
+        'favoritos' : vetorFavoritos,
+    }
+
+    return jsonify(dados)
+
+@app.route('/importar')
+@login_required
+def importar():
+    user = User.query.get(current_user.id)
+    time = Time.query.filter(Time.id_usuario == current_user.id).all()
+    favoritos = Favoritos.query.filter(Favoritos.id_usuario == current_user.id).all()
+
+    vetorTime = []
+    for inf in time:
+        vetorTime.append(f'id_pokemon : {inf.id_pokemon}')
+    
+    vetorFavoritos = []
+    for inf in favoritos:
+        vetorFavoritos.append(f'id_pokemon : {inf.id_pokemon}')
+
+    dados = {
+        'id' : f'{user.id}',
+        'nome' : f'{user.username}',
+        'time' : vetorTime,
+        'favoritos' : vetorFavoritos,
+    }
+
+    json_object = json.dumps(dados, indent=4)
+    with open("arquivoJson.json", "w") as outfile: 
+        outfile.write(json_object)
+
+    imagem = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png'
+
+    return render_template('importar.html', arquivo='arquivoJson.json', imagem=imagem)
 
 if __name__ == '__main__':
     db.create_all()

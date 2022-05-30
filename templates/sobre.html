@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+</head>
+<body>
+    <div class="wrapper">
+        <section class="form singup">
+            <header>PokeAPI</header>
+            <form action="jogar" method="POST">
+                <div class="field input">
+                    <label>Trabalho elaborado para a disciplina de Tópicos Especiais em Imformática</label>
+                    <label>Prof. Fabricio G. Henrique</label>
+                    <br>
+                    <label>Alunos:</label>
+                    <label>Jander Raul Azambuja Marques</label>
+                    <label>Ra: 2840481923044</label>
+                    <div class="imagem">
+                        <img src="{{ imagem_jander }}" alt="pikachu">
+                    </div>
+                    <label>Marcelo Giacomini Bonato</label>
+                    <label>Ra: 2840481923037</label>
+                    <div class="imagem">
+                        <img src="{{ imagem_marcelo }}" alt="pikachu">
+                    </div>
+                </div>
+            </form>
+                  
+        </section>
+        <a href="javascript:history.back()">
+            <div class="botoes voltar"><p>Voltar</p></div>
+        </a>
+    </div>
+</body>
+</html>

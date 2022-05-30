@@ -88,3 +88,16 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+.wrapper .botoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 6px;
+    height: 30px;
+    margin: -20px 10px 10px 10px;
+    color: #fff;
+}
+.wrapper .voltar{
+    background-color: rgb(68, 68, 85);
+}

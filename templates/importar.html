@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+</head>
+<body>
+    <div class="wrapper">
+        <section class="form singup">
+            <header>PokeAPI</header>
+            <form action="jogar" method="POST">
+                <div class="field input">                    
+                    <label>Clique no Ditto para fazer o download</label>
+                    <div class="imagem">                        
+                        <a style='background-color: transparent;' href="arquivoJson.json" download>
+                            <img src="{{ imagem }}" alt="ditto">
+                        </a>
+                    </div>
+                    <label>Seu arquivo .json será criado!!</label>
+                </div>
+            </form>     
+        </section>
+        <a href="javascript:history.back()">
+            <div class="botoes voltar"><p>Voltar</p></div>
+        </a>
+    </div>
+</body>
+</html>
