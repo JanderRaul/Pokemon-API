@@ -9,9 +9,6 @@
     <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
 </head>
 <body>
-    <audio !controls autoplay>
-        <source src="{{url_for('static', filename=audio)}}" type="audio/mpeg">
-    </audio>
     <div class="wrapper">
         <section class="form singup">
             <header>PokeAPI</header>
@@ -24,6 +21,9 @@
                     <label>Para começar é preciso ter um cadastro..</label>
                     <label>Se voçê já possui é só clicar em logar</label><br>
                     <label>Você está pronto??</label>
+                    <audio controls autoplay>
+                        <source src="{{url_for('static', filename=audio)}}" type="audio/mpeg">
+                    </audio>
                 </div>
             </form>
             <a href="{{ url_for('login') }}">

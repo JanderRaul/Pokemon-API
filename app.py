@@ -79,7 +79,6 @@ def home():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    msg = ''
     form = LoginForm()
 
     if form.validate_on_submit():
@@ -88,8 +87,6 @@ def login():
             if bcrypt.check_password_hash(user.password, form.password.data):
                 login_user(user)
                 return redirect(url_for('pokedex', pg=1))
-    else:
-        msg = 'Usuario ou senha incorreto'
 
     return render_template('login.html', form=form, msg=msg)
 
