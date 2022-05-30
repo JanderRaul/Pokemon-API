@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI | Ações</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+</head>
+<body>
+    <div class="wrapper">
+        <section class="form singup">
+            <header>PokeAPI</header>
+            <form method="POST">
+                <div class="field input">
+                    <div class="imagem">
+                        <img src="{{ pokemon['sprites']['other']['official-artwork']['front_default'] }}" alt="pikachu">
+                    </div>
+                    <label>{{ msg }}</label>
+                </div>
+            </form>
+            <a href="{{ url_for('pokedex', pg=1) }}">
+                <div class="botao">
+                    Confirmar
+                </div>
+            </a>     
+        </section>
+    </div>
+</body>
+</html>

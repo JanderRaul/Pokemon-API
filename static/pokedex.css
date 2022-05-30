@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #2e2c2c;
+}
+.wrapper{
+    background: #fff;
+    width: 450px;
+    border-radius: 16px;
+    box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+                0 32px 64px -48px rgba(0, 0, 0, 0.5);
+}
+.wrapper .botoes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 6px;
+    height: 30px;
+    margin: 10px 10px;
+    color: #fff;
+}
+.wrapper .voltar{
+    background-color: rgb(68, 68, 85);
+}
+.wrapper .pokeball{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.wrapper .pokeball img{
+    height: 100px;
+    width: 100px;
+}
+.form{
+    padding: 25px 30px;
+}
+.form header{
+    font-size: 25px;
+    font-weight: 600;
+}
+.form form{
+    margin: 20px 0;
+}
+.form form .field{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.form form .field label{
+    margin-bottom: 2px;
+}
+.form form .button input{
+    height: 45px;
+    border: none;
+    font-size: 17px;
+    font-weight: 400;
+    background: #333;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.form form .button input:hover{
+    background: #61bd8c;
+}
+.cab{
+    position: relative;
+    display: flex;
+}
+.cab .menu{
+    position: absolute;
+    display: flex;
+    right: 0;
+    height: 100%;
+}
+.cab .menu a{
+    text-decoration: none;
+    color: #333;
+}
+.cab .menu a i{
+    height: 100%;
+    width: 32px;
+    border-radius: 8px;
+    background-color: #e6e6e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+.cab .menu a i:hover{
+    background-color: #ccc;
+}
+.cards{
+    margin-top: 5px;                        
+    border-top: 1px solid #e6e6e6;
+    padding-top: 10px;
+}
+.cards .field .card{
+    display: grid;
+	grid-template-columns: 50% 50%;
+}
+.cards .field .imagem{
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+.cards .field .card .imagem img{
+    height: 200px; 
+    width: 200px;
+}
+.cards .field .card h3{
+    font-size: 22px;
+    font-weight: 600;
+}
+.cards .field .card h4{
+    margin-bottom: 30px;
+}
+.cards .field .card .inf .tipo{
+    display: flex;
+    padding: 2px;
+    width: 70px;    
+    align-items: center; 
+    justify-content: center;
+    margin-top: 6px;
+    border-radius: 4px;
+}
+
+.cards .field .card .inf .grass{
+	background: #7AC74C;
+}
+.cards .field .card .inf .poison{
+	background: #A33EA1;
+}
+.cards .field .card .inf .fire{
+	background: #EE8130;
+}
+.cards .field .card .inf .flying{
+	background: #A98FF3;
+}
+.cards .field .card .inf .water{
+	background: #6390F0;
+}
+.cards .field .card .inf .bug{
+	background: #A6B91A;
+}
+.cards .field .card .inf .normal{
+	background: #A8A77A;
+}
+.cards .field .card .inf .fighting{
+	background: #C22E28;
+}
+.cards .field .card .inf .ground{
+	background: #E2BF65;
+}
+.cards .field .card .inf .rock{
+	background: #B6A136;
+}
+.cards .field .card .inf .ghost{
+	background: #735797;
+}
+.cards .field .card .inf .steel{
+	background: #B7B7CE;
+}
+.cards .field .card .inf .electric{
+	background: #F7D02C;
+}
+.cards .field .card .inf .psychic{
+	background: #F95587;
+}
+.cards .field .card .inf .ice{
+	background: #96D9D6;
+}
+.cards .field .card .inf .dragon{
+	background: #6F35FC;
+}
+.cards .field .card .inf .dark{
+	background: #705746;
+}
+.cards .field .card .inf .fairy{
+	background: #D685AD;
+}
+.cards .field .card .inf .unknown{
+	background: #569491;
+}
+.cards .field .card .inf .shadow{
+	background: #696969;
+}
+.cards .field .card .inf .tipo label{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 300;
+}
+.cards .field .card .inf .delete{
+    margin-top: calc(-50% + 24px); 
+    display: flex; 
+    justify-content: right;
+}
+.wrapper .paginas{
+    display: flex;
+    justify-content: end;
+}
+.wrapper .paginas a{
+    text-align: center;
+    color: #fff;
+    background-color: #333;
+    padding: 3px;
+    margin-left: 6px;
+    width: 24px;
+    border-radius: 4px;
+}

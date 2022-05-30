@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='home.css')}}">
+</head>
+<body>
+    <audio !controls autoplay>
+        <source src="{{url_for('static', filename=audio)}}" type="audio/mpeg">
+    </audio>
+    <div class="wrapper">
+        <section class="form singup">
+            <header>PokeAPI</header>
+            <form action="jogar" method="POST">
+                <div class="field input">
+                    <label>Sejá bem vindo treinador!!!</label>
+                    <div class="imagem">
+                        <img src="{{ imagem }}" alt="pikachu">
+                    </div>
+                    <label>Para começar é preciso ter um cadastro..</label>
+                    <label>Se voçê já possui é só clicar em logar</label><br>
+                    <label>Você está pronto??</label>
+                </div>
+            </form>
+            <a href="{{ url_for('login') }}">
+                <div class="botao">
+                    Logar
+                </div>
+            </a>
+            <a href="{{ url_for('register') }}">
+                <div class="botao">
+                    Registrar
+                </div>
+            </a>       
+        </section>
+    </div>
+</body>
+</html>

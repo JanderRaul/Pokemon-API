@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeAPI | MeuTime</title>
+    <script src="https://kit.fontawesome.com/60fc503006.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='pokedex.css')}}">
+</head>
+<body>
+    <div class="wrapper">
+        <section class="form">
+            <div class="cab">
+                <header>Meu Time</header>
+                <div class="menu">
+                    <a href="{{url_for('MeusFavoritos')}}"><i class="fa-solid fa-heart"></i></a>
+                    <a href="{{url_for('MeuTime')}}"><i class="fa-solid fa-people-group"></i></a>
+                    <a href="{{url_for('logout')}}"><i class="fa-solid fa-circle-xmark"></i></a>
+                </div>                  
+            </div>
+            <div class="cards">
+                <div class="field">
+                    <p>{{ msg }}</p>
+                    {% for pokemon in pokemons %}
+                    <div class="card">
+                        <div class="imagem">
+                            <img src="{{ pokemon['sprites']['other']['official-artwork']['front_default'] }}" alt="{{ pokemon['name'] }}">
+                        </div>
+                        <div class="inf">
+                            <h3>{{ pokemon['name'] | capitalize }}</h3>
+                            <h4>#{{ pokemon['id']}}</h4>
+                            {% for type in pokemon['types'] %}
+                                <div class="tipo {{ type['type']['name'] }}">
+                                    <label>{{ type['type']['name'] | capitalize }}</label>
+                                </div>
+                            {% endfor %}
+                            <a href="{{url_for('tirartime', id=pokemon['id'])}}">
+                                <div class="delete">
+                                    <i style="font-size: 24px; color: #555;" class="fa-solid fa-trash-can"></i>
+                                </div>
+                            </a>
+                        </div>
+                        
+                    </div>  
+                    {% endfor %}
+                    {% for vazio in vazios %}
+                        <div class="pokeball">
+                            <img src="{{ vazio }}" alt="poke-ball">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>                                         
+        </section>
+        <a href="javascript:history.back()">
+            <div class="botoes voltar"><p>Voltar</p></div>
+        </a>
+    </div>
+</body>
+</html>
